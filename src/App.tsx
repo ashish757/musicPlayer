@@ -1,10 +1,11 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Library from "./components/Library";
 import Uploader from "./components/Uploader";
 import Queue from "./components/Queue";
 import Player from "./components/Player";
 import "./App.css";
 import type { Track } from "./types";
+import { loadTracksFromDB } from "./db";
 
 export default function App() {
   const [library, setLibrary] = useState<Track[]>([
@@ -28,6 +29,23 @@ export default function App() {
   const addToQueue = (track: Track) => {
     setQueue(prev => [...prev, track]);
   };
+
+
+useEffect(() => {
+    const initializeLibrary = async () => {
+      try {
+        const savedTracks = await loadTracksFromDB();
+        if (savedTracks.length > 0) {
+          setLibrary(prev => [...prev, ...savedTracks]);
+        }
+      } catch (error) {
+        console.error("Failed to load tracks from IndexedDB:", error);
+      }
+    };
+    
+    initializeLibrary();
+  }, []);
+
 
   return (
     <div className="saloon-layout">

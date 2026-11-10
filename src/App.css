@@ -51,7 +51,6 @@ h2, span, p, .track-title {
   padding: 0 16px 16px 16px;
   margin: 0;
   font-size: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 .panel-right {  
@@ -89,6 +88,10 @@ h2, span, p, .track-title {
   background: linear-gradient(to top, #eccca9b0 0%, #eccca9b0 25%, #eccca9b0 50%, #eccca9b0 75%, #eccba900 100%);
 
   border: none;
+
+  h2 {
+    padding-left: 1.5rem;
+  }
 }
 
 .panel-player {
