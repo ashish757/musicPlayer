@@ -1,4 +1,4 @@
-import { ListMusic } from "lucide-react";
+import { ListMusic, X } from "lucide-react";
 import "./queue.css";
 
 export default function Queue({ queue }) {
@@ -18,6 +18,7 @@ export default function Queue({ queue }) {
         <div key={`${track.id}-${index}`} className="queue-item">
           <span className="queue-index">{index + 1}</span>
           <span className="queue-title">{track.title}</span>
+          <span className="queue-remove"><X/></span>
         </div>
       ))}
     </div>
