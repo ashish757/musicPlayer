@@ -11,7 +11,7 @@ image
 - Create a queue of tracks to play in order
 - Persistent queue across page reloads
 - change volume and skip tracks
-
+ ### And a bug "SALOON" but in Hindi (indian) language 
 
 
 # Tech Stack
