@@ -1,22 +1,6 @@
-export interface Track {
-  id: string;
-  title: string;
-  duration: string; 
-  url: string; 
-}
+import type { Album } from "./types";
 
-
-export interface Album {
-  id: string;
-  title: string;
-  artist: string;
-  coverArt: string; // URL or path to the album cover image
-  tracks: Track[];
-}
-
-
-
-export const mockAlbums = [
+export const mockAlbums: Album[] = [
   {
     id: "a1",
     title: "Midnight in the Mojave",
