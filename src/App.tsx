@@ -4,16 +4,28 @@ import Uploader from "./components/Uploader";
 import Queue from "./components/Queue";
 import Player from "./components/Player";
 import "./App.css";
+import type { Track } from "./types";
 
 export default function App() {
-  const [library, setLibrary] = useState([]);
+  const [library, setLibrary] = useState<Track[]>([
+    { 
+      id: "track-1", 
+      title: "295", 
+      url: "/music/295.mp3",
+    },
+    { 
+      id: "track-2", 
+      title: "Agar Tum Saath Ho", 
+      url: "/music/agarTumSaathHo.mp3" 
+    }
+  ]);
   const [queue, setQueue] = useState([]);
   const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const addToQueue = (track) => {
+  const addToQueue = (track: Track) => {
     setQueue(prev => [...prev, track]);
   };
 
