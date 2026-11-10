@@ -38,7 +38,6 @@
   max-width: 250px;
 }
 
-/* Center Controls */
 .playback-controls {
   flex: 1;
   display: flex;
@@ -95,7 +94,7 @@
   cursor: pointer;
 }
 
-.play-btn:hover {
+.play-btn {
   background-color: var(--accent-chair-blue);
   color: #fff;
 }

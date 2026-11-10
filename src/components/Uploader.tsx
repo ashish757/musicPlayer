@@ -28,7 +28,8 @@ export default function Uploader({ setLibrary }) {
     <div className="uploader-container">
       <label className="upload-button">
         <Upload size={18} />
-        <span>Select Audio Files</span>
+
+        <span>Upload (mp3, m4a, FLAC, WAV)</span>
         <input 
           type="file" 
           accept="audio/*" 
@@ -37,7 +38,6 @@ export default function Uploader({ setLibrary }) {
           hidden 
         />
       </label>
-      <p className="upload-hint">Loads locally into your browser. Saved persistently.</p>
     </div>
   );
 }

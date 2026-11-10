@@ -50,18 +50,20 @@ useEffect(() => {
   return (
     <div className="saloon-layout">
       <section className="panel-library">
-        <h2>Available Tracks</h2>
+        <h2>Tracks</h2>
         <Library library={library} onAddToQueue={addToQueue} />
       </section>
 
+      <div className="hindi-text">सैलून</div>
+
       <section className="panel-right">
         <div className="uploader-section">
-          <h2>Load Music</h2>
+          <h2>Add Tracks</h2>
           <Uploader setLibrary={setLibrary} />
         </div>
         
         <div className="queue-section">
-          <h2>Up Next</h2>
+          <h2>Queue</h2>
           <Queue queue={queue} />
         </div>
       </section>
