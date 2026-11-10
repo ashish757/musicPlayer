@@ -7,8 +7,8 @@ export const mockAlbums: Album[] = [
     artist: "Harry Styles",
     coverArt: "/covers/mojave.jpg", 
     tracks: [
-      { id: "t1", title: "Golden", duration: "3:42", url: "" },
-      { id: "t2", title: "Watermelon Sugar", duration: "4:15", url: "" }
+      { id: "t1", title: "Golden",  url: "" },
+      { id: "t2", title: "Watermelon Sugar", url: "" }
     ]
   },
   {
@@ -17,8 +17,8 @@ export const mockAlbums: Album[] = [
     artist: "Alka Yagnik",
     coverArt: "/covers/frontier.jpg",
     tracks: [
-      { id: "t3", title: "Aapke Pyar Mein Hum", duration: "2:50", url: "" },
-      { id: "t4", title: "Jo Bhi Kasmein", duration: "3:10", url: "" }
+      { id: "t3", title: "Aapke Pyar Mein Hum", url: "" },
+      { id: "t4", title: "Jo Bhi Kasmein", url: "" }
     ]
   }
 ];
