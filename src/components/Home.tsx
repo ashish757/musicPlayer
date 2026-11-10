@@ -1,10 +1,16 @@
 import "./home.css";
 import { mockAlbums } from "../mockData"; 
+import type { Album } from "../types";
 
-export default function Home({ setView, setActiveAlbum }) {
-  const handleAlbumClick = (album) => {
+interface Props {
+  setView: (view: string) => void;
+  setActiveAlbum: (album: Album) => void;
+}
+
+export default function Home({ setView, setActiveAlbum }: Props) {
+  const handleAlbumClick = (album: Album) => {
     setActiveAlbum(album);
-    setview("album")
+    setView("album");
   }
 
   return (
