@@ -1,66 +1,56 @@
-// import { useState, useRef } from 'react';
-// import { mockAlbums } from './mockData';
-import Sidebar from './components/Sidebar';
-// import HomeView from './components/HomeView';
-// import AlbumDetailView from './components/AlbumDetailView';
-// import BottomPlayer from './components/BottomPlayer';
-import "./App.css";
-
+import { useState, useEffect, useRef } from "react";
+import Sidebar from "./components/Sidebar";
+import Home from "./components/Home";
+import Search from "./components/Search";
+import AlbumView from "./components/AlbumView"; 
+import "./App.css"; 
+import type { Album, Track } from "./types";
 
 export default function App() {
-  // const [currentView, setCurrentView] = useState('home'); 
-  // const [activeAlbum, setActiveAlbum] = useState(null); 
-  
-  // const [queue, setQueue] = useState([]);
-  // const [currentTrack, setCurrentTrack] = useState(null);
-  // const [isPlaying, setIsPlaying] = useState(false);
-  // const [isQueueVisible, setIsQueueVisible] = useState(false);
-  
-  // const audioRef = useRef(null);
+  const [currentView, setCurrentView] = useState("home"); 
+  const [activeAlbum, setActiveAlbum] = useState<Album | null>(null);
 
-  // const renderMainContent = () => {
-  //   switch (currentView) {
-  //     case 'home':
-  //       return <HomeView albums={mockAlbums} onViewAlbum={(album) => {
-  //         setActiveAlbum(album);
-  //         setCurrentView('album');
-  //       }} />;
-  //     case 'album':
-  //       return <AlbumDetailView album={activeAlbum} onAddToQueue={(track) => setQueue(prev => [...prev, track])} />;
-  //     case 'search':
-  //       return <p>Search View Placeholder</p>; 
-  //     case 'library':
-  //       return <p>Saved Albums Placeholder</p>;
-  //     default:
-  //       return <HomeView albums={mockAlbums} />;
-  //   }
-  // };
+  const [queue, setQueue] = useState<Track[]>([]);
+  const audioRef = useRef(null);
 
+  const renderMainContent = () => {
+    switch (currentView) {
+      case "home":
+        return <Home setView={setCurrentView} setActiveAlbum={setActiveAlbum} />;
+      case "search":
+        return <Search setView={setCurrentView} setActiveAlbum={setActiveAlbum} />;
+      case "album":
+        return (
+          activeAlbum && <AlbumView 
+            album={activeAlbum} 
+            onAddToQueue={(track: Track) => setQueue(prev => [...prev, track])}
+            setView={setCurrentView}
+          />
+        );
+      case "library":
+        return <div className="placeholder-view"><h2>Library (Coming Soon)</h2></div>;
+      default:
+        return <Home setView={setCurrentView} setActiveAlbum={setActiveAlbum} />;
+    }
+  };
+
+
+  useEffect(() => {
+    console.log(queue);
+  }, [queue]);
   return (
-    <div className="layout-grid">
-      <Sidebar />
+    <div className="app-layout">
+      <Sidebar currentView={currentView} setView={setCurrentView} />
       
-      {/* <main className="main-content">
+      <main className="main-viewport">
         {renderMainContent()}
       </main>
 
-      <BottomPlayer 
-        currentTrack={currentTrack}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        audioRef={audioRef}
-        toggleQueue={() => setIsQueueVisible(!isQueueVisible)}
-      />
-
-      {isQueueVisible && (
-        <aside className="queue-drawer">
-           <h2>Up Next</h2>
-        
-        </aside>
-      )}
-
-      <audio ref={audioRef} src={currentTrack?.url} /> */}
-
+      {/* Bottom Player placeholder to complete the layout grid */}
+      <footer className="bottom-player">
+        <p>Player Controls Area</p>
+        <audio ref={audioRef} />
+      </footer>
     </div>
   );
 }
