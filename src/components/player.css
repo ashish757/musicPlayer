@@ -1,0 +1,107 @@
+.player-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.now-playing {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.idle-text {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-info .label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--accent-red);
+  font-weight: bold;
+}
+
+.track-info .title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+
+/* Center Controls */
+.playback-controls {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s, color 0.2s;
+}
+
+.control-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.control-btn:not(:disabled):hover {
+  color: var(--accent-red);
+  transform: scale(1.1);
+}
+
+.play-btn {
+  background-color: var(--text-primary);
+  color: var(--bg-main);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.play-btn:hover {
+  background-color: var(--accent-red);
+  color: #fff;
+}
+
+.volume-control {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.volume-control input[type="range"] {
+  width: 100px;
+  accent-color: var(--accent-red);
+  cursor: pointer;
+}
+
+.play-btn:hover {
+  background-color: var(--accent-chair-blue);
+  color: #fff;
+}
+
+.volume-control input[type="range"] {
+  width: 100px;
+  accent-color: var(--accent-chair-blue);
+  cursor: pointer;
+}
